@@ -1,0 +1,169 @@
+:root {
+  --body-color:#1861a5;
+  --quick-access-bar-bg-color: rgba(0, 0, 0, 0.273);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
+  /* border: 1px solid black; */
+}
+
+.design-area {
+  width: 35%;
+  height: 85%;
+  margin: 50px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transition-duration: 2s;
+}
+
+@media screen and (orientation:portrait) {
+  .design-area {
+    width: 90%;
+    height: 90%;
+  }
+}
+
+.design-area:hover {
+  transform: perspective(800px) rotate3d(0, 1, 0, -40deg);
+}
+
+.design-area > div {
+  position: absolute;
+}
+
+#left-side {
+  width: 40px;
+  height: 700px;
+  transform: rotateY(90deg) translateZ(200px);
+  background-color: var(--body-color);
+}
+
+.power-button-area {
+  height: 100px;
+  width: 14px;
+  position: relative;
+  top: 200px;
+  left: 12px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
+.phone-front {
+  width: 400px;
+  height: 780px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  transform: translateZ(14px);
+  border: 1px solid black;
+  background-color: black;
+}
+
+.screen {
+  width: 94%;
+  height: 96.5%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 5% auto;  
+  border-radius: 46px;
+  background-color: white;
+  background-image: url(./images/iphone-wallpaper.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.notification-bar {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+}
+
+.time-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.battery-and-network-section {
+  display: flex;
+  justify-content: start;
+  align-items: flex-end;
+}
+
+.battery-network-icon {
+  width: 80%;
+  height: 80%;
+  background-image: url(./images/newtwork-battery.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+time{
+  width: 80%;
+  height: 60%;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+}
+
+.camera-section {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: black;
+}
+
+.main-screen {
+  padding: 10px;
+  padding-top: 30px;
+  display: grid;
+  grid-template: auto 13%/100%;
+}
+
+.icon {
+  height: 70px;
+  aspect-ratio: 1;
+  border-radius: 20px;
+  background-size: cover;
+}
+
+.apps {
+  place-items: center;
+  display: grid;
+  row-gap: 5px;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: repeat(6, 16%);
+}
+
+figcaption {
+  font-size: 14px;
+  text-align: center;
+  color: white;
+}
+
+.widgets {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.widget {
+  height: 170px;
+  aspect-ratio: 1;
+  background-size: contain;
+}
+
+.quick-access-bar {
+  border-radius: 30px;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--quick-access-bar-bg-color);
+}

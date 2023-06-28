@@ -1,0 +1,102 @@
+<html>
+
+<head>
+  <title>Iphone</title>
+  <link rel='stylesheet' href='./phone.css'>
+  <script>
+    window.onload = () => {
+      const date = new Date();
+      const currentTime = date.toLocaleTimeString().slice(0, 5);
+      document.getElementById("current-time").innerText = currentTime;
+
+      setInterval(() => {
+        const date = new Date();
+        const currentTime = date.toLocaleTimeString().slice(0, 5);
+
+        document.getElementById("current-time").innerText = currentTime;
+      }, 1000);
+    }
+  </script>
+</head>
+
+<body>
+  <main class="design-area">
+    <section id="left-side">
+      <div class="power-button-area"></div>
+    </section>
+    <div class="phone-front">
+      <div class="screen">
+        <section class="notification-bar">
+          <div class="time-section">
+            <time id="current-time">00:00</time>
+          </div>
+          <div class="camera-section"></div>
+          <div class="battery-and-network-section">
+            <div class="battery-network-icon"></div>
+          </div>
+        </section>
+        <div class="main-screen">
+          <section class="apps">
+            <figure class="widgets">
+              <div class="widget" id="weather" style="background-image: url(./images/weather-widget.png);"></div>
+              <figcaption>Weather</figcaption>
+            </figure>
+
+            <figure>
+              <div class="icon" id="calender" style="background-image: url(./images/calender.png);"></div>
+              <figcaption>Calender</figcaption>
+            </figure>
+
+            <figure>
+              <div class="icon" id="notes" style="background-image: url(./images/notes-icon.png);"></div>
+              <figcaption>Notes</figcaption>
+            </figure>
+
+            <figure>
+              <div class="icon" id="reminder" style="background-image: url(./images/reminder-icon.png);"></div>
+              <figcaption>Reminder</figcaption>
+            </figure>
+
+            <figure>
+              <div class="icon" id="photos" style="background-image: url(./images/photos-icon.png);"></div>
+              <figcaption>Photos</figcaption>
+            </figure>
+
+            <figure>
+              <div class="icon" id="appstore" style="background-image: url(./images/app-store.png);"></div>
+              <figcaption>App Store</figcaption>
+            </figure>
+
+            <figure>
+              <div class="icon" id="settings" style="background-image: url(./images/settings-icon.png);"></div>
+              <figcaption>Settings</figcaption>
+            </figure>
+
+            <figure>
+              <div class="icon" id="music" style="background-image: url(./images/music-icon.png);"></div>
+              <figcaption>Music</figcaption>
+            </figure>
+
+            <figure>
+              <div class="icon" id="clock" style="background-image: url(./images/clock-icon.png);"></div>
+              <figcaption>Clock</figcaption>
+            </figure>
+
+            <figure>
+              <div class="icon" id="whatsapp" style="background-image: url(./images/whatsapp-icon.png);"></div>
+              <figcaption>Whatsapp</figcaption>
+            </figure>
+          </section>
+          <section class="quick-access-bar">
+            <div class="icon" id="call" style="background-image: url(./images/calling-icon.png);"></div>
+            <div class="icon" id="message" style="background-image: url(./images/messages.png);"></div>
+            <div class="icon" id="chrome" style="background-image: url(./images/chrome-icon.png);"></div>
+            <div class="icon" id="camera" style="background-image: url(./images/camera-icon.png);"></section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

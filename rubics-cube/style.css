@@ -1,0 +1,90 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: system-ui, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.cube {
+  height: 200px;
+  width: 200px;
+  margin: 200px auto;
+  transform-style: preserve-3d;
+
+  transition-duration: 15s;
+}
+
+.cube:hover {
+  transform: rotate3d(1,1,2,1200deg);
+}
+
+.cube:active {
+  transform: rotate3d(1,1,2,-1200deg);
+}
+
+.face {
+  height: 300px;
+  width: 300px;
+  font-size: 1.2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  position: absolute;
+  backface-visibility: visible;
+}
+
+#front {
+  transform: translateZ(150px);
+}
+
+#back{
+  transform:translateZ(-150px);
+}
+
+#right {
+  transform: rotateY(90deg) translateZ(150px);
+}
+
+#left {
+  transform: rotateY(90deg) translateZ(-150px);
+}
+
+#top {
+  transform: rotateX(90deg) translateZ(150px);
+}
+
+#bottom {
+  transform: rotateX(90deg) translateZ(-150px);
+}
+
+.block {
+  width: 33%;
+  height: 33%;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.white {
+  background-color: white;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.green {
+  background-color: green;
+}
+

@@ -1,0 +1,167 @@
+:root{
+  --card-bg-color: rgba(164, 212, 227, 0.826);
+  --image-bg-color: rgb(199, 223, 232);
+  --image-shadow: rgb(12, 12, 93);
+  --image-on-click: rgba(255, 255, 255, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  font-size: 20px;
+  margin: 0em auto;
+  background-image: url(https://r4.wallpaperflare.com/wallpaper/439/852/914/little-prince-universe-science-fiction-fantasy-art-wallpaper-08d60d483000cc48803c31ce1802c41a.jpg);
+  background-size: contain;
+}
+
+.page {
+  height: 80%;
+  margin: 0em auto;
+  text-align: center;
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  width:fit-content;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 10em;
+  font-weight: 500;
+  width: 4em;
+  color: transparent;
+
+  background-image: linear-gradient(hsl(30, 80%, 50%), hsl(60, 80%, 60%));
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.dex {
+  width: 57em;
+  height: 100%;
+  padding-top: 1.5em;
+
+  display: flex;
+  gap: 1em;
+  flex-wrap:wrap;
+  justify-content: center;
+}
+
+.poke-card {
+  width: 12em;
+  height: fit-content;
+  padding: 1em;
+  border-radius: 10px;
+
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: center;
+  align-content: center;
+  row-gap: 0.5em;
+  
+  background-color: var(--card-bg-color);
+}
+
+.dex:has(.poke-card:active) .poke-card:not(:active){
+  filter: blur(10px);
+}
+
+.poke-card:active {
+  z-index: 1;
+}
+
+figure {
+  width: 10em;
+  height: 10em;
+  border-bottom: .1em solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+figcaption {
+  text-align: center;
+  font-weight: 500;
+  transition: 1s;
+}
+
+.poke-img {
+  height: 150px;
+  width: 150px;
+  background-color: var(--image-bg-color);
+  border-radius: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  box-shadow: 0.5em 0.5em 0.5em var(--image-shadow);
+  transition: 1s;
+}
+
+.poke-attributes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  height: fit-content;
+}
+
+.poke-card:active .poke-attribute:nth-child(even) {
+  transform: translate(10em, -3em);
+  scale: 1.5;
+}
+
+.poke-card:active .poke-attribute:nth-child(odd) {
+  transform: translate(-10em, -3em);
+  scale: 1.5;
+}
+
+.poke-card:active .poke-img{
+  scale: 1.5;
+  transform: translate(0, 4em);
+  background-color: var(--image-on-click);
+}
+
+.poke-card:active figcaption{
+  scale: 1.5;
+  transform: translate(0, -5em);
+  background-color: rgba(183, 218, 228, 0.826);
+  border-radius: 10px;
+  padding: 0.5em;
+}
+
+.poke-attribute {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0.2em;
+  background-color: rgba(183, 218, 228, 0.826);
+  border-radius: 10px;
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-between;
+  transition: 1s;
+}
+
+.poke-card:active {
+  background-color: rgba(183, 218, 228, 0);
+
+}
+
+.label {
+  height: 1em;
+  width: auto;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.value {
+  height: 1em;
+  width: auto;
+  font-size: 14px;
+}

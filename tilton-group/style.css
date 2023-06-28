@@ -1,0 +1,157 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* border: 2px solid black; */
+}
+
+body {
+  font-size: 20px;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+
+#front-page {
+  height: 98%;
+  width: 98%;
+  margin: 0 auto;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 5em; */
+
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(rgb(0,0,0,0.8), rgb(0,0,0,0.3)),url(./resources/HD_tilton_20201103-338-copie.jpeg);
+}
+
+header {
+  height: 6em;
+  width: 97%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: sticky;
+  top: 0em;
+
+  border-bottom: 1px solid white;
+}
+
+.packaging-search {
+  height: 3.5em;
+  width: 13em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#packaging-button {
+  height: 3.1em;
+  width: 9em;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+#search-button {
+  height: 3.1em;
+  width: 3.1em;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.header-list {
+  display: flex;
+  justify-items: center;
+}
+
+.header-list * {
+  font-size: 16px;
+  font-weight: 300;
+  width: 6em;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 60px;
+  text-align: right;
+  font-weight: 600;
+  margin-left: 2em;
+  color: white;
+
+}
+
+#front-page-text {
+  width: 48em;
+  height: 30em;
+  font-weight: 300;
+  position: fixed;
+  top: 10em;
+  color: white;
+}
+
+#logo-shape {
+  width: 4em;
+  height: 4em;
+
+  background-image: url(./resources/logo-shape.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#line-1, #line-3{
+  font-size: 128px;
+  padding-left: 0.8em;
+}
+
+#line-2 {
+  font-size: 128px;
+  display: flex;
+  justify-content: end;
+}
+
+#brand-list {
+  width: 100%;
+  height: 0%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1;
+
+  transition: 0.5s;
+  background-color: white;
+}
+
+#brand-list > div {
+  width: 23%;
+  height: 80%;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  background-color: antiquewhite;
+}
+
+#front-page:has(#brands:hover) #brand-list {
+  height: 70%;
+}
+
+#second-page {
+  width: 100%;
+  height: 50em;
+  background-color:burlywood;
+}
