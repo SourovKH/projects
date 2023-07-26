@@ -96,7 +96,7 @@ body {
   display: grid;
   grid-template-rows: 15% 10% auto;
   border-radius: 10px;
-  border: 1px solid black;
+  border: 2px solid var(--theme-color);
 }
 
 .tasks {
@@ -111,14 +111,17 @@ body {
 .task {
   width: 90%;
   height: 50px;
-  padding: 5px 20px;
-  margin-bottom: 20px;
+  padding: 5px 10px;
   cursor: pointer;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--theme-color);
+}
+
+.task > div:first-child {
+  width: 90%;
 }
 
 .close-button {
@@ -142,7 +145,8 @@ body {
   text-decoration: line-through;
 }
 
-.sort-options{
+.sort-options {
   border-radius: 10px;
+  color: var(--theme-color);
   border: 2px solid var(--theme-color);
 }
