@@ -153,7 +153,7 @@ header {
   border-radius: 50%;
   visibility: hidden;
   color: white;
-  background-color: rgb(224, 23, 130);
+  background-color: rgb(216, 66, 146);
 }
 
 .task:hover > .close-button {

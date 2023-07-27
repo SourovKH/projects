@@ -28,28 +28,24 @@ class Todo {
     this.#sortingMethod = sortingMethod;
   }
 
+  #getTaskDetails(task) {
+    const taskDescription = task.description;
+    const id = task.id;
+    const isDone = task.isDone;
+
+    return { taskDescription, id, isDone };
+  }
+
   sortTasksAlphabetically() {
     const sortedTasks = this.#tasks.toSorted((a, b) => {
-      return a.description > b.description ? 1 : -1;
+      return a.description >= b.description ? 1 : -1;
     });
 
-    return sortedTasks.map((task) => {
-      const taskDescription = task.description;
-      const id = task.id;
-      const isDone = task.isDone;
-
-      return { taskDescription, id, isDone };
-    });
+    return sortedTasks.map(this.#getTaskDetails);
   }
 
   defaultTasks() {
-    return this.#tasks.map((task) => {
-      const taskDescription = task.description;
-      const id = task.id;
-      const isDone = task.isDone;
-
-      return { taskDescription, id, isDone };
-    });
+    return this.#tasks.map(this.#getTaskDetails);
   }
 
   #groupOnCompletion() {
@@ -57,13 +53,7 @@ class Todo {
       a.isDone < b.isDone ? -1 : 1
     );
 
-    return groupedTasks.map((task) => {
-      const taskDescription = task.description;
-      const id = task.id;
-      const isDone = task.isDone;
-
-      return { taskDescription, id, isDone };
-    });
+    return groupedTasks.map(this.#getTaskDetails);
   }
 
   removeTask(taskId) {
