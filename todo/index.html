@@ -9,10 +9,16 @@
   <script src="scripts/todo-controller.js"></script>
   <script src="scripts/view.js"></script>
   <script src="scripts/main.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body>
   <div id="page">
+    <header>
+    <ion-icon name="newspaper-outline" class="icon"></ion-icon>
+    TODO
+  </header>
     <div id="todo-input-area">
       <input type="text" id="todo-input" class="text-box" placeholder="Enter Todo title">
       <input type="button" class="button" id="add-todo" value="Add Todo">
