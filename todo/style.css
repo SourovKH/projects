@@ -90,7 +90,6 @@ header {
   border-top-right-radius: 9px;
   color: white;
   background-color: var(--theme-color);
-  border-bottom: 1px solid black;
 }
 
 #task-input-area {
