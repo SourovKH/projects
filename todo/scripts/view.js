@@ -17,9 +17,6 @@ class View {
     const sortOptions = document.createElement("select");
     sortOptions.classList.add("sort-options");
 
-    const initialOption = document.createElement("option");
-    initialOption.innerText = "Sort By";
-
     const timeOption = document.createElement("option");
     timeOption.id = `time-${todoId}`;
     timeOption.setAttribute("value", "time");
@@ -35,24 +32,33 @@ class View {
     completionOption.setAttribute("value", "completed");
     completionOption.innerText = "done";
 
-    sortOptions.append(initialOption, timeOption, alphabeticalOption, completionOption);
+    sortOptions.append(timeOption, alphabeticalOption, completionOption);
 
     sortOptions.onchange = (event) => {
       const value = event.target.value;
 
       switch (value) {
         case "time":
+          this.#currentSelectOption = "time";
           this.#listeners.setSortTypeOnTime(todoId);
           break;
 
         case "alphabetical":
+          this.#currentSelectOption = "alphabetical";
           this.#listeners.setSortTypeOnAlphabets(todoId);
           break;
 
         case "completed":
+          this.#currentSelectOption = "completed";
           this.#listeners.setSortTypeOnCompletion(todoId);
       }
     };
+
+    [...sortOptions.children].forEach((option) => {
+      if (option.value === this.#currentSelectOption) {
+        option.setAttribute("selected", "true");
+      }
+    });
 
     return sortOptions;
   }
@@ -84,7 +90,10 @@ class View {
     inputButton.onclick = () => {
       const taskDescription = taskInputBox.value;
       taskInputBox.value = "";
-      this.#listeners.addTaskInTodo(taskDescription, todoId);
+      
+      if (taskDescription !== "") {
+        this.#listeners.addTaskInTodo(taskDescription, todoId);
+      }
     };
 
     const sortOptions = this.#createSortOptions(todoId);
