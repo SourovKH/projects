@@ -3,14 +3,14 @@ class Todo {
   #id;
   #title;
   #taskCount;
-  #sortingMethod;
+  #sortType;
 
   constructor(id, title) {
     this.#tasks = [];
     this.#id = id;
     this.#title = title;
     this.#taskCount = 0;
-    this.#sortingMethod = "time";
+    this.#sortType = "time";
   }
 
   createTask(taskDescription) {
@@ -19,13 +19,13 @@ class Todo {
     this.#tasks.push(task);
   }
 
-  toggleIsDone(taskId) {
+  markOrUnmarkTask(taskId) {
     const todoToMark = this.#tasks.find((task) => task.id === taskId);
     todoToMark.toggleMarkStatus();
   }
 
   set sortingMethod(sortingMethod) {
-    this.#sortingMethod = sortingMethod;
+    this.#sortType = sortingMethod;
   }
 
   #getTaskDetails(task) {
@@ -36,7 +36,7 @@ class Todo {
     return { taskDescription, id, isDone };
   }
 
-  sortTasksAlphabetically() {
+  sortAlphabetically() {
     const sortedTasks = this.#tasks.toSorted((a, b) => {
       return a.description >= b.description ? 1 : -1;
     });
@@ -44,7 +44,7 @@ class Todo {
     return sortedTasks.map(this.#getTaskDetails);
   }
 
-  defaultTasks() {
+  sortOnTime() {
     return this.#tasks.map(this.#getTaskDetails);
   }
 
@@ -62,10 +62,10 @@ class Todo {
 
   get tasks() {
     return {
-      time: this.defaultTasks(),
-      alphabetical: this.sortTasksAlphabetically(),
+      time: this.sortOnTime(),
+      alphabetical: this.sortAlphabetically(),
       completed: this.#groupOnCompletion(),
-    }[this.#sortingMethod];
+    }[this.#sortType];
   }
 
   get todoId() {

@@ -20,8 +20,8 @@ class TodoController {
     this.#view.render(this.#todoList.todos);
   }
 
-  #toggleIsDone(taskId, todoId) {
-    this.#todoList.toggleIsDone(taskId, todoId);
+  #markOrUnmarkTask(taskId, todoId) {
+    this.#todoList.markOrUnmarkTask(taskId, todoId);
     this.#view.render(this.#todoList.todos);
   }
 
@@ -44,7 +44,7 @@ class TodoController {
     );
 
     this.#view.setListeners("toggleIsDone", (taskId, todoId) =>
-      this.#toggleIsDone(taskId, todoId)
+      this.#markOrUnmarkTask(taskId, todoId)
     );
 
     this.#view.setListeners("sortOn", (sortMethod, todoId) =>

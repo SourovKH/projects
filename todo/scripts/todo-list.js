@@ -25,12 +25,12 @@ class TodoList {
     });
   }
 
-  toggleIsDone(taskId, todoId) {
+  markOrUnmarkTask(taskId, todoId) {
     const todo = this.#todos.find((todo) => {
       return todo.todoId === todoId;
     });
 
-    todo.toggleIsDone(taskId);
+    todo.markOrUnmarkTask(taskId);
   }
 
   setSortingMethod(sortingMethod, todoId) {
