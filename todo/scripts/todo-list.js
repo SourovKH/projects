@@ -33,6 +33,30 @@ class TodoList {
     todo.markOrUnmarkTask(taskId);
   }
 
+  setSortTypeOnTime(todoId) {
+    const todo = this.#todos.find((todo) => {
+      return todo.todoId === todoId;
+    });
+
+    todo.setSortTypeOnTime();
+  }
+
+  setSortTypeOnAlphabets(todoId) {
+    const todo = this.#todos.find((todo) => {
+      return todo.todoId === todoId;
+    });
+
+    todo.setSortTypeOnAlphabets();
+  }
+
+  setSortTypeOnCompletion(todoId) {
+    const todo = this.#todos.find((todo) => {
+      return todo.todoId === todoId;
+    });
+
+    todo.setSortTypeOnCompletion();
+  }
+
   setSortingMethod(sortingMethod, todoId) {
     const todo = this.#todos.find((todo) => {
       return todo.todoId === todoId;

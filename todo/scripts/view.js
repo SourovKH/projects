@@ -3,12 +3,14 @@ class View {
   #addButton;
   #textBox;
   #listeners;
+  #currentSelectOption;
 
   constructor(todoListContainer, addButton, textBox) {
     this.#todoListContainer = todoListContainer;
     this.#addButton = addButton;
     this.#textBox = textBox;
     this.#listeners = {};
+    this.#currentSelectOption = "time";
   }
 
   #createSortOptions(todoId) {
@@ -33,18 +35,22 @@ class View {
     completionOption.setAttribute("value", "completed");
     completionOption.innerText = "done";
 
-    sortOptions.append(
-      initialOption,
-      timeOption,
-      alphabeticalOption,
-      completionOption
-    );
+    sortOptions.append(initialOption, timeOption, alphabeticalOption, completionOption);
 
     sortOptions.onchange = (event) => {
       const value = event.target.value;
 
-      if (value !== "") {
-        this.#listeners.sortOn(value, todoId);
+      switch (value) {
+        case "time":
+          this.#listeners.setSortTypeOnTime(todoId);
+          break;
+
+        case "alphabetical":
+          this.#listeners.setSortTypeOnAlphabets(todoId);
+          break;
+
+        case "completed":
+          this.#listeners.setSortTypeOnCompletion(todoId);
       }
     };
 

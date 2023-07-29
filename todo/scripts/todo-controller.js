@@ -25,8 +25,20 @@ class TodoController {
     this.#view.render(this.#todoList.todos);
   }
 
-  #sortOn(sortMethod, todoId) {
-    this.#todoList.setSortingMethod(sortMethod, todoId);
+  #setSortTypeOnAlphabets(todoId) {
+    this.#todoList.setSortTypeOnAlphabets(todoId);
+    const sortedTodoList = this.#todoList.todos;
+    this.#view.render(sortedTodoList);
+  }
+
+  #setSortTypeOnTime(todoId) {
+    this.#todoList.setSortTypeOnTime(todoId);
+    const sortedTodoList = this.#todoList.todos;
+    this.#view.render(sortedTodoList);
+  }
+
+  #setSortTypeOnCompletion(todoId) {
+    this.#todoList.setSortTypeOnCompletion(todoId);
     const sortedTodoList = this.#todoList.todos;
     this.#view.render(sortedTodoList);
   }
@@ -47,8 +59,16 @@ class TodoController {
       this.#markOrUnmarkTask(taskId, todoId)
     );
 
-    this.#view.setListeners("sortOn", (sortMethod, todoId) =>
-      this.#sortOn(sortMethod, todoId)
+    this.#view.setListeners("setSortTypeOnAlphabets", (todoId) =>
+      this.#setSortTypeOnAlphabets(todoId)
+    );
+
+    this.#view.setListeners("setSortTypeOnTime", (todoId) =>
+      this.#setSortTypeOnTime(todoId)
+    );
+
+    this.#view.setListeners("setSortTypeOnCompletion", (todoId) =>
+      this.#setSortTypeOnCompletion(todoId)
     );
 
     this.#view.setListeners("removeTask", (todoId, taskId) =>

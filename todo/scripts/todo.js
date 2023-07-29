@@ -24,8 +24,16 @@ class Todo {
     todoToMark.toggleMarkStatus();
   }
 
-  set sortingMethod(sortingMethod) {
-    this.#sortType = sortingMethod;
+  setSortTypeOnTime() {
+    this.#sortType = "time";
+  }
+
+  setSortTypeOnAlphabets() {
+    this.#sortType = "alphabetical";
+  }
+
+  setSortTypeOnCompletion() {
+    this.#sortType = "completed";
   }
 
   #getTaskDetails(task) {
