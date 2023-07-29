@@ -68,9 +68,22 @@ class View {
     todoContainer.classList.add("todo");
     todoContainer.id = `todo-${todoId}`;
 
+    const todoHeader = document.createElement("div");
+    todoHeader.classList.add("todo-header");
+
     const title = document.createElement("div");
     title.classList.add("title");
     title.innerText = todoTitle;
+
+    const closeButton = document.createElement("div");
+    closeButton.classList.add("close-button", "todo-close-button");
+    closeButton.innerText = "X";
+
+    closeButton.onclick = () => {
+      this.#listeners.removeTodo(todoId);
+    };
+
+    todoHeader.append(title, closeButton);
 
     const inputArea = document.createElement("div");
     inputArea.classList.add("input-area");
@@ -90,7 +103,7 @@ class View {
     inputButton.onclick = () => {
       const taskDescription = taskInputBox.value;
       taskInputBox.value = "";
-      
+
       if (taskDescription !== "") {
         this.#listeners.addTaskInTodo(taskDescription, todoId);
       }
@@ -104,7 +117,7 @@ class View {
     taskContainer.classList.add("tasks");
     taskContainer.id = `tasks-${todoId}`;
 
-    todoContainer.append(title, taskContainer, inputArea);
+    todoContainer.append(todoHeader, taskContainer, inputArea);
 
     return todoContainer;
   }

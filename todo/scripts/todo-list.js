@@ -72,4 +72,10 @@ class TodoList {
 
     todo.removeTask(taskId);
   }
+
+  removeTodo(todoId) {
+    this.#todos = this.#todos.filter((todo) => {
+      return todo.todoId !== todoId;
+    });
+  }
 }

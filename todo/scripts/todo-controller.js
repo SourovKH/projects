@@ -48,6 +48,11 @@ class TodoController {
     this.#view.render(this.#todoList.todos);
   }
 
+  #removeTodo(todoId) {
+    this.#todoList.removeTodo(todoId);
+    this.#view.render(this.#todoList.todos);
+  }
+
   start() {
     this.#view.setListeners("addTodo", (title) => this.#addTodo(title));
 
@@ -74,6 +79,8 @@ class TodoController {
     this.#view.setListeners("removeTask", (todoId, taskId) =>
       this.#removeTask(todoId, taskId)
     );
+
+    this.#view.setListeners("removeTodo", (todoId) => this.#removeTodo(todoId));
 
     this.#view.onNewTodo();
   }
